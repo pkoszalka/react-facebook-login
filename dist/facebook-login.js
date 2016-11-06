@@ -1,1 +1,331 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("react")):"function"==typeof define&&define.amd?define(["react"],t):"object"==typeof exports?exports.FacebookLogin=t(require("react")):e.FacebookLogin=t(e.react)}(this,function(e){return function(e){function t(n){if(o[n])return o[n].exports;var r=o[n]={exports:{},id:n,loaded:!1};return e[n].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t,o){e.exports=o(2)},function(e,t,o){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function s(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}t.__esModule=!0;var i=function(){function e(e,t){for(var o=0;o<t.length;o++){var n=t[o];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,o,n){return o&&e(t.prototype,o),n&&e(t,n),t}}(),a=o(5),c=n(a),p=o(3),l=n(p),u=function(e){function t(o){var n=this;r(this,t),e.call(this,o),this.responseApi=function(e){FB.api("/me",{fields:n.props.fields},function(t){t.accessToken=e.accessToken,n.props.callback(t)})},this.checkLoginState=function(e){e.authResponse?n.responseApi(e.authResponse):n.props.callback&&n.props.callback({status:e.status})},this.click=function(){FB.login(n.checkLoginState,{scope:n.props.scope})}}return s(t,e),i(t,null,[{key:"propTypes",value:{callback:a.PropTypes.func.isRequired,appId:a.PropTypes.string.isRequired,xfbml:a.PropTypes.bool,cookie:a.PropTypes.bool,scope:a.PropTypes.string,textButton:a.PropTypes.string,autoLoad:a.PropTypes.bool,size:a.PropTypes.string,fields:a.PropTypes.string,cssClass:a.PropTypes.string,version:a.PropTypes.string,icon:a.PropTypes.string,language:a.PropTypes.string},enumerable:!0},{key:"defaultProps",value:{textButton:"Login with Facebook",scope:"public_profile, email",xfbml:!1,cookie:!1,size:"metro",fields:"name",cssClass:"kep-login-facebook",version:"2.3",language:"en_US"},enumerable:!0}]),t.prototype.componentDidMount=function(){var e=this,t=document.createElement("div");t.id="fb-root",document.body.appendChild(t),window.fbAsyncInit=function(){FB.init({appId:e.props.appId,xfbml:e.props.xfbml,cookie:e.props.cookie,version:"v"+e.props.version}),e.props.autoLoad&&FB.getLoginStatus(e.checkLoginState)},function(t,o,n){var r=t.getElementsByTagName(o)[0],s=r,i=r;t.getElementById(n)||(i=t.createElement(o),i.id=n,i.src="//connect.facebook.net/"+e.props.language+"/all.js",s.parentNode.insertBefore(i,s))}(document,"script","facebook-jssdk")},t.prototype.renderWithFontAwesome=function(){return c["default"].createElement("div",null,c["default"].createElement("link",{rel:"stylesheet",href:"//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"}),c["default"].createElement("button",{className:this.props.cssClass+" "+this.props.size,onClick:this.click},c["default"].createElement("i",{className:"fa "+this.props.icon})," ",this.props.textButton),c["default"].createElement("style",{dangerouslySetInnerHTML:{__html:l["default"]}}))},t.prototype.render=function(){return this.props.icon?this.renderWithFontAwesome():c["default"].createElement("div",null,c["default"].createElement("button",{className:this.props.cssClass+" "+this.props.size,onClick:this.click},this.props.textButton),c["default"].createElement("style",{dangerouslySetInnerHTML:{__html:l["default"]}}))},t}(c["default"].Component);t["default"]=u,e.exports=t["default"]},function(e,t,o){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}t.__esModule=!0;var r=o(1),s=n(r);t["default"]=s["default"],e.exports=t["default"]},function(e,t,o){t=e.exports=o(4)(),t.push([e.id,".kep-login-facebook{font-family:Helvetica,sans-serif;font-weight:700;-webkit-font-smoothing:antialiased;color:#fff;cursor:pointer;display:inline-block;font-size:calc(.27548vw + 12.71074px);text-decoration:none;text-transform:uppercase;transition:background-color .3s,border-color .3s;background-color:#4c69ba;border:calc(.06887vw + .67769px) solid #4c69ba;padding:calc(.34435vw + 13.38843px) calc(.34435vw + 18.38843px)}.kep-login-facebook.small{padding:calc(.34435vw + 3.38843px) calc(.34435vw + 8.38843px)}.kep-login-facebook.medium{padding:calc(.34435vw + 8.38843px) calc(.34435vw + 13.38843px)}.kep-login-facebook.metro{border-radius:0}.kep-login-facebook .fa{margin-right:calc(.34435vw + 3.38843px)}",""]),t.locals={"kep-login-facebook":"kep-login-facebook",small:"small",medium:"medium",metro:"metro",fa:"fa"}},function(e,t){e.exports=function(){var e=[];return e.toString=function(){for(var e=[],t=0;t<this.length;t++){var o=this[t];o[2]?e.push("@media "+o[2]+"{"+o[1]+"}"):e.push(o[1])}return e.join("")},e.i=function(t,o){"string"==typeof t&&(t=[[null,t,""]]);for(var n={},r=0;r<this.length;r++){var s=this[r][0];"number"==typeof s&&(n[s]=!0)}for(r=0;r<t.length;r++){var i=t[r];"number"==typeof i[0]&&n[i[0]]||(o&&!i[2]?i[2]=o:o&&(i[2]="("+i[2]+") and ("+o+")"),e.push(i))}},e}},function(t,o){t.exports=e}])});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("react"));
+	else if(typeof define === 'function' && define.amd)
+		define(["react"], factory);
+	else if(typeof exports === 'object')
+		exports["FacebookLogin"] = factory(require("react"));
+	else
+		root["FacebookLogin"] = factory(root["react"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _facebook = __webpack_require__(2);
+
+	var _facebook2 = _interopRequireDefault(_facebook);
+
+	exports['default'] = _facebook2['default'];
+	module.exports = exports['default'];
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _stylesFacebookScss = __webpack_require__(4);
+
+	var _stylesFacebookScss2 = _interopRequireDefault(_stylesFacebookScss);
+
+	var FacebookLogin = (function (_React$Component) {
+	  _inherits(FacebookLogin, _React$Component);
+
+	  _createClass(FacebookLogin, null, [{
+	    key: 'propTypes',
+	    value: {
+	      callback: _react.PropTypes.func.isRequired,
+	      appId: _react.PropTypes.string.isRequired,
+	      xfbml: _react.PropTypes.bool,
+	      cookie: _react.PropTypes.bool,
+	      scope: _react.PropTypes.string,
+	      textButton: _react.PropTypes.string,
+	      autoLoad: _react.PropTypes.bool,
+	      size: _react.PropTypes.string,
+	      fields: _react.PropTypes.string,
+	      cssClass: _react.PropTypes.string,
+	      version: _react.PropTypes.string,
+	      icon: _react.PropTypes.string,
+	      language: _react.PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      textButton: 'Login with Facebook',
+	      scope: 'public_profile, email',
+	      xfbml: false,
+	      cookie: false,
+	      size: 'metro',
+	      fields: 'name',
+	      cssClass: 'kep-login-facebook',
+	      version: '2.3',
+	      language: 'en_US'
+	    },
+	    enumerable: true
+	  }]);
+
+	  function FacebookLogin(props) {
+	    var _this = this;
+
+	    _classCallCheck(this, FacebookLogin);
+
+	    _React$Component.call(this, props);
+
+	    this.responseApi = function (authResponse) {
+	      FB.api('/me', { fields: _this.props.fields }, function (me) {
+	        me.accessToken = authResponse.accessToken;
+	        me.signedRequest = authResponse.signedRequest;
+	        _this.props.callback(me);
+	      });
+	    };
+
+	    this.checkLoginState = function (response) {
+	      if (response.authResponse) {
+	        _this.responseApi(response.authResponse);
+	      } else {
+	        if (_this.props.callback) {
+	          _this.props.callback({ status: response.status });
+	        }
+	      }
+	    };
+
+	    this.click = function () {
+	      FB.login(_this.checkLoginState, { scope: _this.props.scope });
+	    };
+	  }
+
+	  FacebookLogin.prototype.componentDidMount = function componentDidMount() {
+	    var _this2 = this;
+
+	    var fbRoot = document.createElement('div');
+	    fbRoot.id = 'fb-root';
+
+	    document.body.appendChild(fbRoot);
+
+	    window.fbAsyncInit = function () {
+	      FB.init({
+	        appId: _this2.props.appId,
+	        xfbml: _this2.props.xfbml,
+	        cookie: _this2.props.cookie,
+	        version: 'v' + _this2.props.version
+	      });
+
+	      if (_this2.props.autoLoad) {
+	        FB.getLoginStatus(_this2.checkLoginState);
+	      }
+	    };
+
+	    // Load the SDK asynchronously
+	    (function (d, s, id) {
+	      var element = d.getElementsByTagName(s)[0];
+	      var fjs = element;
+	      var js = element;
+	      if (d.getElementById(id)) {
+	        return;
+	      }
+	      js = d.createElement(s);js.id = id;
+	      js.src = '//connect.facebook.net/' + _this2.props.language + '/all.js';
+	      fjs.parentNode.insertBefore(js, fjs);
+	    })(document, 'script', 'facebook-jssdk');
+	  };
+
+	  FacebookLogin.prototype.renderWithFontAwesome = function renderWithFontAwesome() {
+	    return _react2['default'].createElement(
+	      'div',
+	      null,
+	      _react2['default'].createElement('link', { rel: 'stylesheet', href: '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' }),
+	      _react2['default'].createElement(
+	        'button',
+	        {
+	          className: this.props.cssClass + ' ' + this.props.size,
+	          onClick: this.click },
+	        _react2['default'].createElement('i', { className: 'fa ' + this.props.icon }),
+	        ' ',
+	        this.props.textButton
+	      ),
+	      _react2['default'].createElement('style', { dangerouslySetInnerHTML: { __html: _stylesFacebookScss2['default'] } })
+	    );
+	  };
+
+	  FacebookLogin.prototype.render = function render() {
+	    if (this.props.icon) {
+	      return this.renderWithFontAwesome();
+	    }
+
+	    return _react2['default'].createElement(
+	      'div',
+	      null,
+	      _react2['default'].createElement(
+	        'button',
+	        {
+	          className: this.props.cssClass + ' ' + this.props.size,
+	          onClick: this.click },
+	        this.props.textButton
+	      ),
+	      _react2['default'].createElement('style', { dangerouslySetInnerHTML: { __html: _stylesFacebookScss2['default'] } })
+	    );
+	  };
+
+	  return FacebookLogin;
+	})(_react2['default'].Component);
+
+	exports['default'] = FacebookLogin;
+	module.exports = exports['default'];
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(5)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".kep-login-facebook {\n  font-family: \"Helvetica\", sans-serif;\n  font-weight: bold;\n  -webkit-font-smoothing: antialiased;\n  border-width: calc(0.06887vw + 0.67769px);\n  border-style: solid;\n  color: #FFF;\n  cursor: pointer;\n  display: inline-block;\n  font-size: calc(0.27548vw + 12.71074px);\n  text-decoration: none;\n  text-transform: uppercase;\n  transition: background-color .3s, border-color .3s;\n  background-color: #4C69BA;\n  border-color: #4C69BA;\n  padding: calc(0.34435vw + 13.38843px) calc(0.34435vw + 18.38843px); }\n\n.kep-login-facebook.small {\n  padding: calc(0.34435vw + 3.38843px) calc(0.34435vw + 8.38843px); }\n\n.kep-login-facebook.medium {\n  padding: calc(0.34435vw + 8.38843px) calc(0.34435vw + 13.38843px); }\n\n.kep-login-facebook.metro {\n  border-radius: 0; }\n\n.kep-login-facebook .fa {\n  margin-right: calc(0.34435vw + 3.38843px); }\n", ""]);
+
+	// exports
+	exports.locals = {
+		"kep-login-facebook": "kep-login-facebook",
+		"small": "small",
+		"medium": "medium",
+		"metro": "metro",
+		"fa": "fa"
+	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ }
+/******/ ])
+});
+;

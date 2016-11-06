@@ -69,6 +69,7 @@ class FacebookLogin extends React.Component {
   responseApi = (authResponse) => {
     FB.api('/me', { fields: this.props.fields }, (me) => {
       me.accessToken = authResponse.accessToken;
+      me.signedRequest = authResponse.signedRequest;
       this.props.callback(me);
     });
   };
@@ -114,7 +115,7 @@ class FacebookLogin extends React.Component {
             onClick={this.click}>
           {this.props.textButton}
         </button>
-        
+
         <style dangerouslySetInnerHTML={{ __html: styles }}></style>
       </div>
     );
